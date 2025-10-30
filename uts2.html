@@ -6,20 +6,16 @@
   <title>UTS 2 — My Songs For You</title>
   <style>
     :root{
-      --bg:#0a0a0a; --fg:#eaeaea; --muted:#9b9b9b; --card:#111; --link:#d1ff52; --border:#2a2a2a;
-      --accent:#d1ff52;
+      --bg:#0a0a0a; --fg:#eaeaea; --muted:#9b9b9b; --card:#111; --link:#d1ff52; --border:#2a2a2a; --accent:#d1ff52;
     }
     *{box-sizing:border-box}
-    body{
-      margin:0; background:var(--bg); color:var(--fg);
-      font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      letter-spacing:.2px; line-height:1.6; padding:24px;
-    }
+    body{ margin:0; background:var(--bg); color:var(--fg); font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; letter-spacing:.2px; line-height:1.6; padding:24px; }
     a{color:var(--link); text-decoration:none} a:hover{text-decoration:underline}
     .wrap{max-width:800px;margin:auto}
     h1{margin:0 0 10px}
     h2{color:var(--muted);margin:0 0 10px}
-    pre{white-space:pre-wrap; word-wrap:break-word; font-family:inherit; margin:0}
+    h3{color:var(--link); font-weight:700; margin:16px 0 8px}
+    p{margin:0 0 10px}
     .btn{display:inline-block; margin-top:20px; padding:8px 12px; border-radius:10px; background:#111; border:1px solid var(--border)}
     .card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; margin-top:20px}
     ul{margin:8px 0 0 18px}
@@ -29,10 +25,8 @@
     .row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
     .row.controls{justify-content:space-between}
     .left, .right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-    .btn-icon{
-      border:1px solid var(--border); background:linear-gradient(180deg,#1a1a1a,#0f0f0f);
-      border-radius:10px; padding:8px 10px; cursor:pointer; user-select:none
-    }
+    .btn-icon{ border:1px solid var(--border); background:linear-gradient(180deg,#1a1a1a,#0f0f0f); border-radius:10px; padding:8px; cursor:pointer; user-select:none; display:grid; place-items:center; }
+    .btn-icon svg{ width:18px; height:18px; fill:var(--accent); }
     .btn-icon[aria-pressed="true"]{outline:1px solid var(--accent)}
     .time{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--muted);font-size:14px}
     .range{appearance:none; width:100%; height:6px; border-radius:999px; background:#222; outline:none}
@@ -63,14 +57,25 @@
         <span class="time" id="dur">--:--</span>
       </div>
 
-      <!-- Controls -->
+      <!-- Controls (ikon hijau) -->
       <div class="row controls">
         <div class="left">
-          <button class="btn-icon" id="back10" title="Rewind 10s" aria-label="Rewind 10 seconds">⏪ 10s</button>
-          <button class="btn-icon" id="play" title="Play/Pause" aria-label="Play or pause">▶️</button>
-          <button class="btn-icon" id="fwd10" title="Forward 10s" aria-label="Forward 10 seconds">10s ⏩</button>
-          <button class="btn-icon" id="loop" title="Loop" aria-label="Toggle loop" aria-pressed="false">🔁</button>
-          <button class="btn-icon" id="mute" title="Mute" aria-label="Toggle mute" aria-pressed="false">🔇</button>
+          <button class="btn-icon" id="back10" title="Rewind 10s" aria-label="Rewind 10 seconds">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7l-5 5 5 5V7zm2 0v10l5-5-5-5z"/></svg>
+          </button>
+          <button class="btn-icon" id="play" title="Play/Pause" aria-label="Play or pause">
+            <svg id="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="icon-pause" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+          </button>
+          <button class="btn-icon" id="fwd10" title="Forward 10s" aria-label="Forward 10 seconds">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7l5 5-5 5V7zm-2 0L5 12l5 5V7z"/></svg>
+          </button>
+          <button class="btn-icon" id="loop" title="Loop" aria-label="Toggle loop" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h7V4l4 4-4 4V9H7v6h4v2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zm10 10h-7v3l-4-4 4-4v3h7V9h-4V7h4a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2z"/></svg>
+          </button>
+          <button class="btn-icon" id="mute" title="Mute" aria-label="Toggle mute" aria-pressed="false">
+            <svg id="icon-vol" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zm1.5 0a6 6 0 0 1-3 5.2V6.8A6 6 0 0 1 18 12z"/></svg>
+          </button>
         </div>
         <div class="right">
           <div class="vol-wrap">
@@ -90,14 +95,21 @@
       <div class="hint">Space = Play/Pause · ←/→ = ±5s · L = Loop · M = Mute</div>
     </div>
 
-    <pre>
-Video Link : MONTAGEM XONADA - YouTube
-Song Title: MONTAGEM XONADA
-Original Artist: MAFIA
-Kenapa Lagu ini?
-Lagu ini saya dengar kalo lagi bergadang.
+    <!-- H3 hijau untuk meta -->
+    <section>
+      <h3>Video Link</h3>
+      <p>MONTAGEM XONADA - YouTube</p>
+      <h3>Song Title</h3>
+      <p>MONTAGEM XONADA</p>
+      <h3>Original Artist</h3>
+      <p>MAFIA</p>
+      <h3>Kenapa Lagu ini?</h3>
+      <p>Lagu ini saya dengar kalo lagi bergadang.</p>
+    </section>
 
-Lirik lagu : 
+    <section class="card" style="margin-top:20px">
+      <h2>Lirik lagu</h2>
+      <pre style="margin-top:8px">
 Eu vou xonar
 Mas não vou me cansar não
 Eu vou vivendo a minha vida dançando
@@ -127,7 +139,8 @@ Eu vou xonar, mas não vou
 Mas não vou me cansar
 E nós, nós fode na tua casa
 Bandida, bandida treinada
-    </pre>
+      </pre>
+    </section>
 
     <!-- Navigasi antar UTS -->
     <section class="card" id="notes" style="margin-top:20px">
@@ -192,13 +205,15 @@ Bandida, bandida treinada
 
     // controls
     play.addEventListener('click', async ()=>{
+      const iconPlay = document.getElementById('icon-play');
+      const iconPause = document.getElementById('icon-pause');
       if (audio.paused) {
-        try { await audio.play(); play.textContent = '⏸️'; } catch(e){}
-      } else { audio.pause(); play.textContent = '▶️'; }
+        try { await audio.play(); iconPlay.style.display='none'; iconPause.style.display='block'; } catch(e){}
+      } else { audio.pause(); iconPlay.style.display='block'; iconPause.style.display='none'; }
     });
 
-    audio.addEventListener('play', ()=> play.textContent='⏸️');
-    audio.addEventListener('pause', ()=> play.textContent='▶️');
+    audio.addEventListener('play', ()=>{ document.getElementById('icon-play').style.display='none'; document.getElementById('icon-pause').style.display='block'; });
+    audio.addEventListener('pause', ()=>{ document.getElementById('icon-play').style.display='block'; document.getElementById('icon-pause').style.display='none'; });
 
     back10.addEventListener('click', ()=> audio.currentTime = Math.max(0, audio.currentTime - 10));
     fwd10.addEventListener('click', ()=> audio.currentTime = Math.min(audio.duration||audio.currentTime+10, audio.currentTime + 10));
@@ -211,7 +226,10 @@ Bandida, bandida treinada
     mute.addEventListener('click', ()=>{
       audio.muted = !audio.muted;
       mute.setAttribute('aria-pressed', String(audio.muted));
-      mute.textContent = audio.muted ? '🔈' : '🔇';
+      const path = audio.muted
+        ? 'M4 9v6h4l5 4V5L8 9H4zm13.5-3.5l1.5 1.5L17 9l2 2-1.5 1.5L15.5 10l-2 2L12 10l2-2-2-2 1.5-1.5 2 2 2-2z'
+        : 'M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zm1.5 0a6 6 0 0 1-3 5.2V6.8A6 6 0 0 1 18 12z';
+      document.querySelector('#icon-vol path').setAttribute('d', path);
     });
 
     volume.addEventListener('input', ()=>{
@@ -229,8 +247,8 @@ Bandida, bandida treinada
       const tag = (e.target.tagName||'').toLowerCase();
       if (tag==='input' || tag==='textarea') return; // jangan ganggu ketika mengetik
       if (e.code==='Space'){ e.preventDefault(); play.click(); }
-      if (e.code==='ArrowLeft'){ e.preventDefault(); back10.click(); }
-      if (e.code==='ArrowRight'){ e.preventDefault(); fwd10.click(); }
+      if (e.code==='ArrowLeft'){ e.preventDefault(); audio.currentTime = Math.max(0, audio.currentTime - 5); }
+      if (e.code==='ArrowRight'){ e.preventDefault(); audio.currentTime = Math.min(audio.duration||audio.currentTime+5, audio.currentTime + 5); }
       if (e.key==='l' || e.key==='L'){ loop.click(); }
       if (e.key==='m' || e.key==='M'){ mute.click(); }
     });
