@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UTS 2 — My Songs For You</title>
+  <style>
+    :root{
+      --bg:#0a0a0a; --fg:#eaeaea; --muted:#9b9b9b; --accent:#d1ff52; --card:#111; --link:#d1ff52;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--fg);
+      font:16px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      letter-spacing:0.2px;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:840px; margin:0 auto; padding:24px}
+    .card{background:var(--card); border:1px solid #1b1b1b; border-radius:16px; padding:18px; margin-top:20px}
+    h1,h2{margin:0 0 10px}
+    h1{font-size:26px}
+    h2{font-size:18px; color:var(--muted)}
+    ul{margin:8px 0 0 18px}
+    .btn{display:inline-block; margin-top:20px; padding:8px 12px; border-radius:10px; background:#111; border:1px solid #333}
+    audio{display:none}
+  </style>
+</head>
+<body>
+  <!-- Backsound -->
+  <audio autoplay loop>
+    <source src="MONTAGEMXONADA.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="wrap">
+    <h1>UTS 2 — My Songs For You</h1>
+    <p>Halaman ini berisi proyek UTS ke-2 mata kuliah II2100 Komunikasi Interpersonal dan Publik. 
+    Pastikan file audio <code>MONTAGEMXONADA.mp3</code> ada di folder yang sama agar backsound berfungsi.</p>
+
+    <iframe src="https://drive.google.com/file/d/11DNFb2w1eXGG3HxKpUz-6ksz8H-ilFTh/preview"
+            width="100%" height="480" allow="autoplay"></iframe>
+
+    <!-- Navigasi antar UTS -->
+    <section class="card" id="notes" style="margin-top:20px">
+      <h2>II2100 Komunikasi Interpersonal dan Publik</h2>
+      <ul>
+        <li><a href="/uts1.html">UTS 1 : All About Me</a></li>
+        <li><a href="/uts2.html">UTS 2 : My Songs For You</a></li>
+        <li><a href="/uts3.html">UTS 3 : My Stories For You</a></li>
+        <li><a href="/uts4.html">UTS 4 : My Shape</a></li>
+        <li><a href="/uts5.html">UTS 5 : My Personal Review</a></li>
+      </ul>
+    </section>
+
+    <a href="/ii2100.html" class="btn">← Kembali ke daftar UTS</a>
+  </div>
+</body>
+</html>
