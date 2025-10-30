@@ -5,26 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>UTS 2 — My Songs For You</title>
   <style>
-    :root{
-      --bg:#0a0a0a; --fg:#eaeaea; --muted:#9b9b9b; --accent:#d1ff52; --card:#111; --link:#d1ff52;
+    body {
+      background:#0a0a0a;
+      color:#eaeaea;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      margin:0;
+      padding:24px;
+      line-height:1.6;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:var(--bg); color:var(--fg);
-      font:16px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      letter-spacing:0.2px;
+    .wrap { max-width:800px; margin:auto; }
+    a { color:#d1ff52; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    pre {
+      white-space:pre-wrap;
+      word-wrap:break-word;
+      font-family:inherit;
+      margin:0;
     }
-    a{color:var(--link); text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:840px; margin:0 auto; padding:24px}
-    .card{background:var(--card); border:1px solid #1b1b1b; border-radius:16px; padding:18px; margin-top:20px}
-    h1,h2{margin:0 0 10px}
-    h1{font-size:26px}
-    h2{font-size:18px; color:var(--muted)}
-    ul{margin:8px 0 0 18px}
-    .btn{display:inline-block; margin-top:20px; padding:8px 12px; border-radius:10px; background:#111; border:1px solid #333}
-    audio{display:none}
+    .btn {
+      display:inline-block;
+      margin-top:20px;
+      padding:8px 12px;
+      background:#111;
+      border:1px solid #333;
+      border-radius:10px;
+    }
+    section.card {
+      background:#111;
+      border:1px solid #1b1b1b;
+      border-radius:16px;
+      padding:18px;
+      margin-top:20px;
+    }
+    h1 { margin-top:0; }
+    h2 { color:#9b9b9b; margin:0 0 10px; }
+    ul { margin:8px 0 0 18px; }
+    audio { display:none; }
   </style>
 </head>
 <body>
@@ -35,11 +51,47 @@
 
   <div class="wrap">
     <h1>UTS 2 — My Songs For You</h1>
-    <p>Halaman ini berisi proyek UTS ke-2 mata kuliah II2100 Komunikasi Interpersonal dan Publik. 
-    Pastikan file audio <code>MONTAGEMXONADA.mp3</code> ada di folder yang sama agar backsound berfungsi.</p>
+    <pre>
+SONGS FOR YOU 
+II2100 Komunikasi Interpersonal & Publik 
 
-    <iframe src="https://drive.google.com/file/d/11DNFb2w1eXGG3HxKpUz-6ksz8H-ilFTh/preview"
-            width="100%" height="480" allow="autoplay"></iframe>
+Video Link : MONTAGEM XONADA - YouTube
+Song Title: MONTAGEM XONADA
+Original Artist: MAFIA
+Kenapa Lagu ini?
+Lagu ini saya dengar kalo lagi bergadang.
+
+Lirik lagu : 
+Eu vou xonar
+Mas não vou me cansar não
+Eu vou vivendo a minha vida dançando
+E nós fode na tua casa
+Bandida, bandida treinada
+Da-da, ah-ah-ah
+Da-ah-ah-ah, da
+Da-ah-ah-ah
+Bandida, bandida treinada
+Da-da, ah-ah-ah
+Da-ah-ah-ah, da
+Da-ah-ah-ah
+Bandida, bandida treinada
+Eu vou xonar, mas não vou
+Mas não vou me cansar
+E nós, nós fode na tua casa
+Bandida, bandida treinada
+Da-da, ah-ah-ah
+Da-ah-ah-ah, da
+Da-ah-ah-ah
+Bandida, bandida treinada
+Da-da, ah-ah-ah
+Da-ah-ah-ah, da
+Da-ah-ah-ah
+Bandida, bandida treinada
+Eu vou xonar, mas não vou
+Mas não vou me cansar
+E nós, nós fode na tua casa
+Bandida, bandida treinada
+    </pre>
 
     <!-- Navigasi antar UTS -->
     <section class="card" id="notes" style="margin-top:20px">
