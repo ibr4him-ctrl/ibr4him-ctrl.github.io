@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ibrahim — Portfolio</title>
+  <meta name="description" content="Ibrahim's minimalist portfolio and notes." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
+  <style>
+    :root{
+      --bg:#0a0a0a; --fg:#eaeaea; --muted:#9b9b9b; --accent:#d1ff52; --card:#111; --link:#d1ff52;
+      --maxw:840px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--fg);
+      font:16px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      letter-spacing:0.2px;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:24px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:16px 0}
+    .brand{font-weight:700; letter-spacing:0.8px}
+    nav a{margin-right:16px; color:var(--fg)}
+    .clock{
+      margin:8px 0 16px; padding:10px 12px; background:var(--card);
+      border:1px solid #1b1b1b; border-radius:12px; color:var(--muted);
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:14px;
+    }
+    .grid{display:grid; gap:20px}
+    @media(min-width:768px){.grid{grid-template-columns:2fr 1fr}}
+    .card{background:var(--card); border:1px solid #1b1b1b; border-radius:16px; padding:18px}
+    h1,h2,h3{margin:0 0 10px}
+    h1{font-size:28px}
+    h2{font-size:18px; color:var(--muted); font-weight:600}
+    ul{margin:8px 0 0 18px}
+    footer{margin:40px 0 24px; color:var(--muted); font-size:14px}
+    .pill{display:inline-block; padding:2px 8px; border:1px solid #333; border-radius:999px; color:var(--muted); font-size:12px}
+    .btn{display:inline-block; padding:8px 12px; border-radius:10px; background:linear-gradient(180deg, #1a1a1a, #0f0f0f); border:1px solid #2a2a2a}
+    img.profile-pic { display:block; margin:20px auto; border-radius:12px; width:100%; max-width:300px; border:1px solid #2a2a2a; object-fit:cover; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">IBRAHIM FERIZARIZQI PERMANA</div>
+      <nav aria-label="primary">
+        <a href="#about">about</a>
+        <a href="#projects">II2100</a>
+        <a href="#notes">notes</a>
+        <a href="#contact">contact</a>
+      </nav>
+    </header>
+
+    <div class="clock" role="status" aria-live="polite">
+      <span>TIME IN BANDUNG</span>
+      <span id="time">—</span>
+      <span class="pill" id="tz">WIB</span>
+    </div>
+
+    <main class="grid">
+      <section class="card" id="about">
+        <h1>Halo semua.</h1>
+        <!-- Pastikan file foto.jpg berada di folder yang sama dengan index.html -->
+        <img src="foto.jpg" alt="Foto Ibrahim" class="profile-pic" />
+        <p>nanti diisi kalo udah niat</p>
+        <ul>
+          <li><strong>Nama:</strong> Ibrahim Ferizarizqi Permana</li>
+          <li><strong>NIM:</strong> 18224120</li>
+          <li><strong>Hobi:</strong> jogging, bikin kopi, main Roblox, <em>...</em></li>
+          <li><strong>Panutan:</strong> Spiderman, Iron Man, Batman</li>
+          <li><strong>Asal:</strong> Bontang, Kalimantan Timur</li>
+        </ul>
+        <p><a class="btn" href="#projects">Lihat proyek</a></p>
+      </section>
+
+      <aside class="card">
+        <h2>links</h2>
+        <ul>
+          <li><a href="https://github.com/ibr4him-ctrl" target="_blank" rel="noopener">github</a></li>
+          <li><a href="mailto:18224120@std.stei.itb.ac.id">email</a></li>
+          <li><a href="https://www.linkedin.com/in/ibrahim-permana-b24139310" target="_blank" rel="noopener">linkedin</a></li>
+          <li><a href="https://www.instagram.com/iferizarizqi/" target="_blank" rel="noopener">instagram</a></li>
+        </ul>
+      </aside>
+    </main>
+
+    <section class="card" id="Hidup sejauh ini di ITB, udah ngapain aja?" style="margin-top:20px">
+      <h2>Hidup sejauh ini di ITB, udah ngapain aja?</h2>
+      <ul>
+        <li><strong>TEC ITB</strong> — Ketua angkatan arthayasa, Manager of Growth and Expansion, staff of sponsorships TECFEST 2025 <span class="pill">in progress</span></li>
+        <li><strong>BPA STEI-K ITB 2024</strong> — Kepala bidang finance IMPACT 5.0 .</li>
+        <li><strong>soon...</strong></li>
+      </ul>
+    </section>
+
+    <section class="card" id="notes" style="margin-top:20px">
+      <h2>II2100 Komunikasi Interpersonal dan Publik</h2>
+      <ul>
+        <li><a href="https://drive.google.com/file/d/1r6vH0kINrK7dpzI6UGZ2iYzwAlivyXOQ/view?usp=sharing" target="_blank" rel="noopener">UTS 1 : All About Me</a></li>
+        <li><a href=" https://drive.google.com/file/d/11DNFb2w1eXGG3HxKpUz-6ksz8H-ilFTh/view?usp=sharing" target="_blank" rel="noopener">UTS 2 : My Songs For You</a></li>
+        <li><a href="#">UTS 3 : My Stories For You</a></li>
+        <li><a href="#">UTS 4 : My Shape</a></li>
+        <li><a href="#">UTS 5 : My Personal Review</a></li>
+      </ul>
+    </section>
+
+    <section class="card" id="contact" style="margin-top:20px">
+      <h2>contact</h2>
+      <p>Email: <a href="mailto:18224120@std.stei.itb.ac.id">18224120@std.stei.itb.ac.id</a> · IG: <a href="https://www.instagram.com/iferizarizqi/" target="_blank" rel="noopener">@iferizarizqi</a></p>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Ibrahim Ferizarizqi Permana 18224120 </div>
+    </footer>
+  </div>
+
+  <script>
+    function fmt(n){return n.toString().padStart(2,'0')}
+    function tick(){
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset()*60000);
+      const wib = new Date(utc + 7*3600*1000);
+      const hh = wib.getHours();
+      const mm = wib.getMinutes();
+      const ss = wib.getSeconds();
+      document.getElementById('time').textContent = `${fmt(hh)}:${fmt(mm)}:${fmt(ss)}`
+    }
+    setInterval(tick, 1000); tick();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
