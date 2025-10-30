@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>II2100 — UTS Collection</title>
+  <meta name="description" content="Kumpulan UTS II2100 milik Ibrahim dengan preview." />
+  <style>
+    :root{ --bg:#0a0a0a; --fg:#eaeaea; --muted:#9b9b9b; --card:#111; --link:#d1ff52; --maxw:960px }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0; background:var(--bg); color:var(--fg); font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    a{color:var(--link); text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:24px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:16px 0}
+    .brand{font-weight:700}
+    .grid{display:grid; gap:18px}
+    @media(min-width:800px){ .grid{grid-template-columns:1fr 1fr} }
+    .card{background:var(--card); border:1px solid #1b1b1b; border-radius:16px; padding:16px}
+    h1{margin:0 0 8px; font-size:26px} h2{margin:0 0 10px; font-size:18px; color:var(--muted)}
+    .meta{color:var(--muted); font-size:13px; margin-top:6px}
+    .btn{display:inline-block; padding:8px 12px; border-radius:10px; background:linear-gradient(180deg,#1a1a1a,#0f0f0f); border:1px solid #2a2a2a}
+    .thumb{width:100%; aspect-ratio:16/9; border-radius:12px; border:1px solid #2a2a2a; background:#0f0f0f; display:grid; place-items:center; color:#777; font-size:13px}
+    /* Modal */
+    .modal{position:fixed; inset:0; display:none; background:#000000cc; z-index:50}
+    .modal.open{display:block}
+    .modal-inner{max-width:1100px; height:80vh; margin:6vh auto; background:#000; border:1px solid #333; border-radius:16px; overflow:hidden}
+    .modal-head{display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:#0f0f0f; border-bottom:1px solid #222}
+    .close{cursor:pointer; padding:6px 10px; border:1px solid #333; border-radius:8px}
+    iframe{width:100%; height:calc(80vh - 48px); border:0}
+    nav a{margin-right:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">IBRAHIM / II2100</div>
+      <nav>
+        <a href="/index.html">home</a>
+      </nav>
+    </header>
+
+    <h1>UTS — II2100</h1>
+    <h2>Semua tugas dalam satu halaman, bisa preview langsung.</h2>
+
+    <section class="grid" aria-label="UTS list">
+      <!-- UTS 1 -->
+      <article class="card">
+        <div class="thumb">Preview tersedia</div>
+        <h3>UTS 1 — All About Me</h3>
+        <div class="meta">Google Drive • PDF/Doc</div>
+        <p>
+          <a class="btn"
+             data-preview="https://drive.google.com/file/d/1r6vH0kINrK7dpzI6UGZ2iYzwAlivyXOQ/preview"
+             href="https://drive.google.com/file/d/1r6vH0kINrK7dpzI6UGZ2iYzwAlivyXOQ/view?usp=sharing"
+             target="_blank" rel="noopener">Open & Preview</a>
+        </p>
+      </article>
+
+      <!-- UTS 2 -->
+      <article class="card">
+        <div class="thumb">Preview tersedia</div>
+        <h3>UTS 2 — My Songs For You</h3>
+        <div class="meta">Google Drive • PDF/Slides</div>
+        <p>
+          <a class="btn"
+             data-preview="https://drive.google.com/file/d/11DNFb2w1eXGG3HxKpUz-6ksz8H-ilFTh/preview"
+             href="https://drive.google.com/file/d/11DNFb2w1eXGG3HxKpUz-6ksz8H-ilFTh/view?usp=sharing"
+             target="_blank" rel="noopener">Open & Preview</a>
+        </p>
+      </article>
+
+      <!-- UTS 3 -->
+      <article class="card">
+        <div class="thumb">Belum ada file — coming soon</div>
+        <h3>UTS 3 — My Stories For You</h3>
+        <div class="meta">Placeholder</div>
+        <p><span class="btn" aria-disabled="true">Preview nanti</span></p>
+      </article>
+
+      <!-- UTS 4 -->
+      <article class="card">
+        <div class="thumb">Belum ada file — coming soon</div>
+        <h3>UTS 4 — My Shape</h3>
+        <div class="meta">Placeholder</div>
+        <p><span class="btn" aria-disabled="true">Preview nanti</span></p>
+      </article>
+
+      <!-- UTS 5 -->
+      <article class="card">
+        <div class="thumb">Belum ada file — coming soon</div>
+        <h3>UTS 5 — My Personal Review</h3>
+        <div class="meta">Placeholder</div>
+        <p><span class="btn" aria-disabled="true">Preview nanti</span></p>
+      </article>
+    </section>
+  </div>
+
+  <!-- Modal viewer -->
+  <div class="modal" id="modal">
+    <div class="modal-inner">
+      <div class="modal-head">
+        <div style="color:#bbb">Preview</div>
+        <button class="close" id="closeBtn">Close</button>
+      </div>
+      <iframe id="viewer" allow="autoplay"></iframe>
+    </div>
+  </div>
+
+  <script>
+    // Lightbox preview for Drive (or any embeddable URL)
+    const modal = document.getElementById('modal');
+    const viewer = document.getElementById('viewer');
+    const closeBtn = document.getElementById('closeBtn');
+
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[data-preview]');
+      if(!a) return;
+      e.preventDefault();
+      const url = a.getAttribute('data-preview'); // Drive /preview URL
+      viewer.src = url;
+      modal.classList.add('open');
+    });
+
+    function closeModal(){
+      viewer.src = 'about:blank';
+      modal.classList.remove('open');
+    }
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+  </script>
+</body>
+</html>
